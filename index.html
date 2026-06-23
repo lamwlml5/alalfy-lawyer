@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أحمد الألفي | محام بالاستئناف العالي ومجلس الدولة</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            400: '#d4af37',
+                            500: '#aa8c2c',
+                            600: '#806921',
+                        },
+                        dark: {
+                            900: '#0f172a',
+                            800: '#1e293b',
+                            700: '#334155',
+                        }
+                    },
+                    fontFamily: {
+                        arabic: ['Cairo', 'sans-serif'],
+                        latin: ['Lora', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Base Styles & Smooth Transitions */
+        body {
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+        
+        .font-arabic { font-family: 'Cairo', sans-serif; }
+        .font-latin { font-family: 'Lora', serif; }
+
+        /* Animation Classes */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #d4af37; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #aa8c2c; }
+
+        /* Card Hover Effects */
+        .hover-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-dark-900 dark:text-gray-200 font-arabic antialiased" id="body-tag">
+
+    <nav class="fixed w-full z-50 bg-white/90 dark:bg-dark-800/90 backdrop-blur-md shadow-sm transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo / Name -->
+                <div class="flex-shrink-0 flex items-center gap-2">
+                    <i class="fa-solid fa-scale-balanced text-gold-500 text-2xl"></i>
+                    <span class="font-bold text-xl dark:text-white" data-i18n="nav_name">أحمد الألفي</span>
+                </div>
+                
+                <!-- Controls (Language & Theme) -->
+                <div class="flex items-center gap-2 sm:gap-4">
+                    <div class="relative group">
+                        <button class="flex items-center gap-2 px-3 py-2 rounded-md bg-gray-100 dark:bg-dark-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition">
+                            <i class="fa-solid fa-globe"></i>
+                            <span id="current-lang" class="uppercase font-bold">AR</span>
+                        </button>
+                        <!-- Dropdown -->
+                        <div class="absolute right-0 rtl:left-0 rtl:right-auto mt-2 w-32 bg-white dark:bg-dark-800 rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                            <button onclick="changeLanguage('ar')" class="block w-full text-start px-4 py-2 hover:bg-gray-100 dark:hover:bg-dark-700 rtl:text-right">العربية</button>
+                            <button onclick="changeLanguage('en')" class="block w-full text-start px-4 py-2 hover:bg-gray-100 dark:hover:bg-dark-700 ltr:text-left">English</button>
+                            <button onclick="changeLanguage('ru')" class="block w-full text-start px-4 py-2 hover:bg-gray-100 dark:hover:bg-dark-700 ltr:text-left">Русский</button>
+                            <button onclick="changeLanguage('it')" class="block w-full text-start px-4 py-2 hover:bg-gray-100 dark:hover:bg-dark-700 ltr:text-left">Italiano</button>
+                        </div>
+                    </div>
+                    
+                    <button onclick="toggleTheme()" class="p-2 rounded-full bg-gray-100 dark:bg-dark-700 hover:text-gold-500 transition-colors w-10 h-10 flex items-center justify-center">
+                        <i id="theme-icon" class="fa-solid fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 dark:opacity-10 pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center fade-in-up">
+            
+            <div class="mb-8 flex justify-center">
+                <div class="relative w-40 h-40 sm:w-48 sm:h-48 rounded-full border-4 border-white dark:border-dark-800 outline outline-4 outline-gold-500 shadow-2xl overflow-hidden group bg-gray-100 dark:bg-dark-800">
+                    <img src="https://i.ibb.co/BHVPTbsn/image.jpg" alt="أحمد الألفي" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" onerror="this.onerror=null; this.src='https://placehold.co/400x400/1e293b/d4af37?text=Ahmed+Al-Alfy';">
+                </div>
+            </div>
+
+            <h3 class="text-gold-500 font-semibold text-lg sm:text-xl mb-4" data-i18n="slogan">حيث تلتقي الخبرة القانونية بالحلول الذكية لحماية الحقوق وتحقيق العدالة</h3>
+            
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight" data-i18n="main_name">
+                الأستاذ/ أحمد محمد الألفي
+            </h1>
+            
+            <div class="inline-flex items-center gap-3 bg-white dark:bg-dark-800 rounded-full px-6 py-3 shadow-md mb-10 border border-gray-100 dark:border-dark-700">
+                <i class="fa-solid fa-gavel text-gold-500"></i>
+                <span class="text-lg sm:text-xl font-medium" data-i18n="job_title">محام بالاستئناف العالي ومجلس الدولة</span>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-6 text-gray-600 dark:text-gray-400">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-location-dot text-gold-500"></i>
+                    <span data-i18n="location">شرم الشيخ- محافظة جنوب سيناء</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-briefcase text-gold-500"></i>
+                    <span data-i18n="exp_short">خبرة 17 عاماً</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 mb-20 relative z-20">
+        <div class="bg-gradient-to-r from-gold-600 to-gold-400 rounded-2xl shadow-xl overflow-hidden p-8 sm:p-12 text-center text-white fade-in-up hover-card">
+            <h2 class="text-5xl sm:text-7xl font-bold mb-2">17</h2>
+            <p class="text-xl sm:text-2xl font-medium" data-i18n="exp_full">عاماً في ممارسة مهنة المحاماة</p>
+        </div>
+    </section>
+
+    <section class="py-16 bg-white dark:bg-dark-800 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4" data-i18n="skills_title">المهارات والخبرات المهنية</h2>
+                <div class="w-24 h-1 bg-gold-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Skill 1 -->
+                <div class="bg-gray-50 dark:bg-dark-900 p-8 rounded-xl shadow-sm border border-gray-100 dark:border-dark-700 hover-card fade-in-up">
+                    <div class="w-14 h-14 bg-gold-500/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-scale-unbalanced text-gold-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 dark:text-white" data-i18n="s1_title">التمثيل القانوني والمرافعة</h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed" data-i18n="s1_desc">مقيد ومصرح بالمرافعة أمام محاكم الاستئناف ومحاكم مجلس الدولة، مع سجل حافل في تقديم الدفوع وتولي القضايا المعقدة.</p>
+                </div>
+
+                <!-- Skill 2 -->
+                <div class="bg-gray-50 dark:bg-dark-900 p-8 rounded-xl shadow-sm border border-gray-100 dark:border-dark-700 hover-card fade-in-up" style="transition-delay: 100ms;">
+                    <div class="w-14 h-14 bg-gold-500/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-folder-open text-gold-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 dark:text-white" data-i18n="s2_title">إدارة المنازعات والتقاضي</h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed" data-i18n="s2_desc">الإدارة الشاملة لملفات القضايا، ومتابعة كافة إجراءات التقاضي بكفاءة أمام مختلف درجات المحاكم والجهات القضائية.</p>
+                </div>
+
+                <!-- Skill 3 -->
+                <div class="bg-gray-50 dark:bg-dark-900 p-8 rounded-xl shadow-sm border border-gray-100 dark:border-dark-700 hover-card fade-in-up" style="transition-delay: 200ms;">
+                    <div class="w-14 h-14 bg-gold-500/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-file-signature text-gold-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 dark:text-white" data-i18n="s3_title">الصياغة القانونية للعقود</h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed" data-i18n="s3_desc">صياغة، مراجعة، وتدقيق العقود والاتفاقيات القانونية (للأفراد والشركات) باحترافية عالية لضمان أقصى درجات الحماية القانونية وتلافي الثغرات.</p>
+                </div>
+
+                <!-- Skill 4 -->
+                <div class="bg-gray-50 dark:bg-dark-900 p-8 rounded-xl shadow-sm border border-gray-100 dark:border-dark-700 hover-card fade-in-up" style="transition-delay: 300ms;">
+                    <div class="w-14 h-14 bg-gold-500/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-lightbulb text-gold-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 dark:text-white" data-i18n="s4_title">الاستشارات الاستراتيجية</h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed" data-i18n="s4_desc">تقديم حلول ورؤى قانونية دقيقة للشركات والأفراد، ترتكز على درء المخاطر، الامتثال القانوني، وفض النزاعات.</p>
+                </div>
+
+                <!-- Skill 5 -->
+                <div class="bg-gray-50 dark:bg-dark-900 p-8 rounded-xl shadow-sm border border-gray-100 dark:border-dark-700 hover-card fade-in-up" style="transition-delay: 400ms;">
+                    <div class="w-14 h-14 bg-gold-500/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-shield-halved text-gold-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 dark:text-white" data-i18n="s5_title">الممارسة الشاملة</h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed" data-i18n="s5_desc">خبرة عملية ومباشرة في التعامل مع طيف واسع من القضايا في مختلف فروع القانون، مما يضمن تقديم دفاع مرن ومتكامل.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-dark-800 dark:bg-dark-900 rounded-3xl overflow-hidden shadow-2xl flex flex-col lg:flex-row fade-in-up">
+                
+                <div class="lg:w-1/3 bg-gold-500 p-10 flex flex-col justify-center text-white">
+                    <i class="fa-solid fa-gem text-5xl mb-6 opacity-80"></i>
+                    <h2 class="text-3xl font-bold mb-4" data-i18n="values_title">القيم والسمات المهنية</h2>
+                    <p class="text-gold-100 text-lg leading-relaxed" data-i18n="values_subtitle">مبادئ راسخة تقود مسيرتي المهنية لضمان حقوق الموكلين.</p>
+                </div>
+                
+                <div class="lg:w-2/3 p-10 lg:p-12 space-y-6 text-gray-200">
+                    <div class="flex items-start gap-4">
+                        <i class="fa-solid fa-check text-gold-400 mt-1"></i>
+                        <p class="text-lg" data-i18n="v1">الالتزام الصارم بأخلاقيات وميثاق شرف المحاماة، وبناء علاقات عمل ترتكز على الثقة المطلقة والشفافية التامة مع الموكلين.</p>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <i class="fa-solid fa-check text-gold-400 mt-1"></i>
+                        <p class="text-lg" data-i18n="v2">السعي الدائم لتحديث المعرفة القانونية، ومتابعة أحدث التشريعات والسوابق القضائية لضمان تقديم أداء قانوني دقيق وعصري.</p>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <i class="fa-solid fa-check text-gold-400 mt-1"></i>
+                        <p class="text-lg" data-i18n="v3">التفاني الكامل والمستميت في الدفاع عن مصالح الموكلين، والعمل الدؤوب لاسترداد الحقوق وإعلاء سيادة القانون.</p>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <i class="fa-solid fa-check text-gold-400 mt-1"></i>
+                        <p class="text-lg" data-i18n="v4">التميز في التواصل الفعال والاستماع الدقيق لاحتياجات العملاء، مع القدرة على ابتكار استراتيجيات وحلول قانونية عملية تحمي مراكزهم القانونية وتحقق أهدافهم.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-white dark:bg-dark-800 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4" data-i18n="achievements_title">الإنجازات والخبرات التخصصية</h2>
+                <div class="w-24 h-1 bg-gold-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="space-y-6 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-gold-300 before:to-transparent rtl:before:mr-5 rtl:before:ml-auto rtl:md:before:mr-auto md:before:left-1/2 rtl:md:before:right-1/2">
+                
+                <!-- Item 1 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active fade-in-up">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white dark:border-dark-800 bg-gold-500 text-white shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow absolute left-0 rtl:right-0 rtl:left-auto md:left-1/2 rtl:md:right-1/2 rtl:md:translate-x-1/2">
+                        <i class="fa-solid fa-star text-sm"></i>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-xl border border-gray-100 dark:border-dark-700 bg-gray-50 dark:bg-dark-900 shadow-sm hover-card ml-auto rtl:mr-auto rtl:ml-0">
+                        <p class="text-gray-700 dark:text-gray-300" data-i18n="a1">تقديم استشارات قانونية استراتيجية أثمرت عن حماية المراكز القانونية وتحصين الأفراد والمؤسسات والشركات ضد المخاطر المحتملة.</p>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active fade-in-up">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white dark:border-dark-800 bg-gold-500 text-white shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow absolute left-0 rtl:right-0 rtl:left-auto md:left-1/2 rtl:md:right-1/2 rtl:md:translate-x-1/2">
+                        <i class="fa-solid fa-water text-sm"></i>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-xl border border-gray-100 dark:border-dark-700 bg-gray-50 dark:bg-dark-900 shadow-sm hover-card ml-auto rtl:mr-auto rtl:ml-0">
+                        <p class="text-gray-700 dark:text-gray-300" data-i18n="a2">تقديم دعم قانوني متخصص لشركات السياحة والسفاري والغوص، يشمل صياغة عقود التشغيل والشراكات، إدارة المنازعات التجارية، وضمان الامتثال التام للوائح والتشريعات المنظمة.</p>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active fade-in-up">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white dark:border-dark-800 bg-gold-500 text-white shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow absolute left-0 rtl:right-0 rtl:left-auto md:left-1/2 rtl:md:right-1/2 rtl:md:translate-x-1/2">
+                        <i class="fa-solid fa-landmark text-sm"></i>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-xl border border-gray-100 dark:border-dark-700 bg-gray-50 dark:bg-dark-900 shadow-sm hover-card ml-auto rtl:mr-auto rtl:ml-0">
+                        <p class="text-gray-700 dark:text-gray-300" data-i18n="a3">تحقيق إنجازات قضائية وأحكام لصالح الموكلين عبر بناء استراتيجيات دفاع محكمة، وتكريس الخبرة الواسعة في أروقة المحاكم لصون حقوقهم.</p>
+                    </div>
+                </div>
+                
+                 <!-- Item 4 -->
+                 <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active fade-in-up">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white dark:border-dark-800 bg-gold-500 text-white shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow absolute left-0 rtl:right-0 rtl:left-auto md:left-1/2 rtl:md:right-1/2 rtl:md:translate-x-1/2">
+                        <i class="fa-solid fa-handshake text-sm"></i>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-xl border border-gray-100 dark:border-dark-700 bg-gray-50 dark:bg-dark-900 shadow-sm hover-card ml-auto rtl:mr-auto rtl:ml-0">
+                        <p class="text-gray-700 dark:text-gray-300" data-i18n="a4">بناء قاعدة صلبة من ثقة العملاء ترتكز على الشفافية المطلقة، الكفاءة القانونية المتميزة، والالتزام التام بتحقيق أقصى درجات النجاح في الملفات الموكلة.</p>
+                    </div>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active fade-in-up">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white dark:border-dark-800 bg-gold-500 text-white shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow absolute left-0 rtl:right-0 rtl:left-auto md:left-1/2 rtl:md:right-1/2 rtl:md:translate-x-1/2">
+                        <i class="fa-solid fa-book-open text-sm"></i>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-xl border border-gray-100 dark:border-dark-700 bg-gray-50 dark:bg-dark-900 shadow-sm hover-card ml-auto rtl:mr-auto rtl:ml-0">
+                        <p class="text-gray-700 dark:text-gray-300" data-i18n="a5">استثمار المتابعة التحليلية المستمرة للتعديلات التشريعية والسوابق القضائية في صياغة دفوع قوية وابتكار حلول قانونية حديثة تعزز موقف الموكلين.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark-900 border-t border-dark-800 pt-16 pb-8 text-center text-white">
+        <div class="max-w-3xl mx-auto px-4 fade-in-up">
+            <i class="fa-solid fa-envelope-open-text text-5xl text-gold-500 mb-6 block"></i>
+            <h2 class="text-3xl font-bold mb-4" data-i18n="contact_title">هل تحتاج إلى استشارة قانونية؟</h2>
+            <p class="text-gray-400 mb-8" data-i18n="contact_desc">نحن هنا لحماية حقوقك وتقديم الدعم القانوني الذي تستحقه. تواصل معنا الآن.</p>
+            
+            <div class="flex flex-wrap justify-center gap-4 sm:gap-6">
+                <!-- Phone -->
+                <a href="tel:+201004558274" class="flex items-center gap-3 bg-gray-800/80 hover:bg-gray-700 border border-gray-700 text-white font-bold py-3 px-6 sm:px-8 rounded-full transition-all hover:scale-105 hover:border-gold-500 shadow-lg group">
+                    <i class="fa-solid fa-phone text-gold-500 group-hover:animate-pulse"></i>
+                    <span data-i18n="contact_phone">اتصال هاتفي</span>
+                </a>
+                
+                <!-- WhatsApp -->
+                <a href="https://wa.me/201004558274" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 bg-gray-800/80 hover:bg-gray-700 border border-gray-700 text-white font-bold py-3 px-6 sm:px-8 rounded-full transition-all hover:scale-105 hover:border-[#25D366] shadow-lg group">
+                    <i class="fa-brands fa-whatsapp text-[#25D366] text-xl group-hover:scale-110 transition-transform"></i>
+                    <span data-i18n="contact_wa">واتساب</span>
+                </a>
+
+                <!-- Email -->
+                <a href="mailto:ahmedlawywe010@gmail.com" class="flex items-center gap-3 bg-gold-500 hover:bg-gold-600 text-white font-bold py-3 px-6 sm:px-8 rounded-full transition-all hover:scale-105 shadow-lg shadow-gold-500/30 group">
+                    <i class="fa-solid fa-envelope group-hover:-translate-y-1 transition-transform"></i>
+                    <span data-i18n="contact_email">البريد الإلكتروني</span>
+                </a>
+            </div>
+
+            <div class="mt-16 text-gray-500 text-sm">
+                <p>&copy; <span id="year"></span> <span data-i18n="footer_copy">أحمد الألفي. جميع الحقوق محفوظة.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Translations Data
+        const translations = {
+            ar: {
+                dir: 'rtl',
+                fontClass: 'font-arabic',
+                nav_name: "أحمد الألفي",
+                slogan: "حيث تلتقي الخبرة القانونية بالحلول الذكية لحماية الحقوق وتحقيق العدالة",
+                main_name: "الأستاذ/ أحمد محمد الألفي",
+                job_title: "محام بالاستئناف العالي ومجلس الدولة",
+                location: "شرم الشيخ- محافظة جنوب سيناء",
+                exp_short: "خبرة 17 عاماً",
+                exp_full: "عاماً في ممارسة مهنة المحاماة",
+                skills_title: "المهارات والخبرات المهنية",
+                s1_title: "التمثيل القانوني والمرافعة",
+                s1_desc: "مقيد ومصرح بالمرافعة أمام محاكم الاستئناف ومحاكم مجلس الدولة، مع سجل حافل في تقديم الدفوع وتولي القضايا المعقدة.",
+                s2_title: "إدارة المنازعات والتقاضي",
+                s2_desc: "الإدارة الشاملة لملفات القضايا، ومتابعة كافة إجراءات التقاضي بكفاءة أمام مختلف درجات المحاكم والجهات القضائية.",
+                s3_title: "الصياغة القانونية للعقود",
+                s3_desc: "صياغة، مراجعة، وتدقيق العقود والاتفاقيات القانونية (للأفراد والشركات) باحترافية عالية لضمان أقصى درجات الحماية القانونية وتلافي الثغرات.",
+                s4_title: "الاستشارات الاستراتيجية",
+                s4_desc: "تقديم حلول ورؤى قانونية دقيقة للشركات والأفراد، ترتكز على درء المخاطر، الامتثال القانوني، وفض النزاعات.",
+                s5_title: "الممارسة الشاملة",
+                s5_desc: "خبرة عملية ومباشرة في التعامل مع طيف واسع من القضايا في مختلف فروع القانون، مما يضمن تقديم دفاع مرن ومتكامل.",
+                values_title: "القيم والسمات المهنية",
+                values_subtitle: "مبادئ راسخة تقود مسيرتي المهنية لضمان حقوق الموكلين.",
+                v1: "الالتزام الصارم بأخلاقيات وميثاق شرف المحاماة، وبناء علاقات عمل ترتكز على الثقة المطلقة والشفافية التامة مع الموكلين.",
+                v2: "السعي الدائم لتحديث المعرفة القانونية، ومتابعة أحدث التشريعات والسوابق القضائية لضمان تقديم أداء قانوني دقيق وعصري.",
+                v3: "التفاني الكامل والمستميت في الدفاع عن مصالح الموكلين، والعمل الدؤوب لاسترداد الحقوق وإعلاء سيادة القانون.",
+                v4: "التميز في التواصل الفعال والاستماع الدقيق لاحتياجات العملاء، مع القدرة على ابتكار استراتيجيات وحلول قانونية عملية تحمي مراكزهم القانونية وتحقق أهدافهم.",
+                achievements_title: "الإنجازات والخبرات التخصصية",
+                a1: "تقديم استشارات قانونية استراتيجية أثمرت عن حماية المراكز القانونية وتحصين الأفراد والمؤسسات والشركات ضد المخاطر المحتملة.",
+                a2: "تقديم دعم قانوني متخصص لشركات السياحة والسفاري والغوص، يشمل صياغة عقود التشغيل والشراكات، إدارة المنازعات التجارية، وضمان الامتثال التام للوائح والتشريعات المنظمة.",
+                a3: "تحقيق إنجازات قضائية وأحكام لصالح الموكلين عبر بناء استراتيجيات دفاع محكمة، وتكريس الخبرة الواسعة في أروقة المحاكم لصون حقوقهم.",
+                a4: "بناء قاعدة صلبة من ثقة العملاء ترتكز على الشفافية المطلقة، الكفاءة القانونية المتميزة، والالتزام التام بتحقيق أقصى درجات النجاح في الملفات الموكلة.",
+                a5: "استثمار المتابعة التحليلية المستمرة للتعديلات التشريعية والسوابق القضائية في صياغة دفوع قوية وابتكار حلول قانونية حديثة تعزز موقف الموكلين.",
+                contact_title: "هل تحتاج إلى استشارة قانونية؟",
+                contact_desc: "نحن هنا لحماية حقوقك وتقديم الدعم القانوني الذي تستحقه. تواصل معنا الآن.",
+                contact_phone: "اتصال هاتفي",
+                contact_wa: "واتساب",
+                contact_email: "البريد الإلكتروني",
+                contact_btn: "تواصل معي",
+                footer_copy: "أحمد الألفي. جميع الحقوق محفوظة."
+            },
+            en: {
+                dir: 'ltr',
+                fontClass: 'font-latin',
+                nav_name: "Ahmed Al-Alfy",
+                slogan: "Where legal expertise meets smart solutions to protect rights and achieve justice",
+                main_name: "Mr. Ahmed Mohamed Al-Alfy",
+                job_title: "Lawyer at the High Court of Appeal & State Council",
+                location: "Sharm El-Sheikh - South Sinai",
+                exp_short: "17 Years Experience",
+                exp_full: "Years of Law Practice",
+                skills_title: "Professional Skills",
+                s1_title: "Legal Representation",
+                s1_desc: "Authorized to plead before the Courts of Appeal and the State Council, with a track record in complex cases.",
+                s2_title: "Dispute Management",
+                s2_desc: "Comprehensive management of case files and efficient follow-up of all litigation procedures.",
+                s3_title: "Contract Drafting",
+                s3_desc: "Drafting, reviewing, and auditing legal contracts with high professionalism to ensure maximum legal protection.",
+                s4_title: "Strategic Consulting",
+                s4_desc: "Providing precise legal solutions focused on risk prevention, compliance, and dispute resolution.",
+                s5_title: "Comprehensive Practice",
+                s5_desc: "Direct practical experience handling a wide range of cases across different branches of law.",
+                values_title: "Professional Values",
+                values_subtitle: "Solid principles guiding my career to secure clients' rights.",
+                v1: "Strict commitment to legal ethics and building relationships based on absolute trust and transparency.",
+                v2: "Constant striving to update legal knowledge and follow the latest legislation and judicial precedents.",
+                v3: "Total dedication to defending clients' interests and working diligently to restore rights.",
+                v4: "Excellence in effective communication with the ability to innovate practical legal strategies.",
+                achievements_title: "Specialized Achievements",
+                a1: "Provided strategic consultations resulting in protecting individuals and companies against potential risks.",
+                a2: "Provided specialized legal support to Tourism, Safari, and Diving companies, managing commercial disputes and ensuring compliance.",
+                a3: "Achieved judicial successes and favorable judgments by building sound defense strategies.",
+                a4: "Built a solid base of client trust grounded in absolute transparency and distinguished legal competence.",
+                a5: "Leveraged analytical follow-up of legislative amendments to draft strong defenses and innovative solutions.",
+                contact_title: "Need Legal Consultation?",
+                contact_desc: "We are here to protect your rights and provide the support you deserve. Contact us now.",
+                contact_phone: "Phone Call",
+                contact_wa: "WhatsApp",
+                contact_email: "Email",
+                contact_btn: "Contact Me",
+                footer_copy: "Ahmed Al-Alfy. All rights reserved."
+            },
+            ru: {
+                dir: 'ltr',
+                fontClass: 'font-latin',
+                nav_name: "Ахмед Аль-Альфи",
+                slogan: "Где юридический опыт встречается с умными решениями для защиты прав и справедливости",
+                main_name: "Г-н Ахмед Мохамед Аль-Альфи",
+                job_title: "Адвокат Высшего апелляционного суда и Государственного совета",
+                location: "Шарм-эш-Шейх - Южный Синай",
+                exp_short: "Опыт 17 лет",
+                exp_full: "Лет юридической практики",
+                skills_title: "Профессиональные навыки",
+                s1_title: "Юридическое представительство",
+                s1_desc: "Уполномочен выступать в апелляционных судах и Государственном совете, имеет опыт ведения сложных дел.",
+                s2_title: "Управление спорами",
+                s2_desc: "Комплексное управление материалами дел и эффективный контроль всех судебных процедур.",
+                s3_title: "Составление договоров",
+                s3_desc: "Составление, проверка и аудит договоров с высоким профессионализмом для максимальной защиты.",
+                s4_title: "Стратегический консалтинг",
+                s4_desc: "Предоставление точных решений, ориентированных на предотвращение рисков и разрешение споров.",
+                s5_title: "Комплексная практика",
+                s5_desc: "Прямой практический опыт ведения широкого спектра дел в различных отраслях права.",
+                values_title: "Профессиональные ценности",
+                values_subtitle: "Твердые принципы, направляющие мою карьеру для защиты прав клиентов.",
+                v1: "Строгое соблюдение юридической этики и построение отношений на абсолютном доверии.",
+                v2: "Постоянное обновление знаний, отслеживание новейшего законодательства и прецедентов.",
+                v3: "Полная самоотдача в защите интересов клиентов и усердная работа по восстановлению прав.",
+                v4: "Превосходство в коммуникации и способность разрабатывать практичные правовые стратегии.",
+                achievements_title: "Специализированные достижения",
+                a1: "Предоставление стратегических консультаций, защитивших лиц и компании от рисков.",
+                a2: "Специализированная поддержка компаний в сфере туризма и дайвинга, управление спорами и обеспечение комплаенса.",
+                a3: "Достижение судебных успехов благодаря построению надежных стратегий защиты.",
+                a4: "Создание прочной базы доверия клиентов, основанной на прозрачности и компетентности.",
+                a5: "Использование анализа законодательных изменений для подготовки сильной защиты и решений.",
+                contact_title: "Нужна юридическая консультация?",
+                contact_desc: "Мы здесь, чтобы защитить ваши права. Свяжитесь с нами сейчас.",
+                contact_phone: "Позвонить",
+                contact_wa: "WhatsApp",
+                contact_email: "Email",
+                contact_btn: "Связаться со мной",
+                footer_copy: "Ахмед Аль-Альфи. Все права защищены."
+            },
+            it: {
+                dir: 'ltr',
+                fontClass: 'font-latin',
+                nav_name: "Ahmed Al-Alfy",
+                slogan: "Dove l'esperienza legale incontra soluzioni intelligenti per proteggere i diritti e la giustizia",
+                main_name: "Avv. Ahmed Mohamed Al-Alfy",
+                job_title: "Avvocato presso l'Alta Corte d'Appello e il Consiglio di Stato",
+                location: "Sharm El-Sheikh - Sinai del Sud",
+                exp_short: "17 Anni di Esperienza",
+                exp_full: "Anni di Pratica Legale",
+                skills_title: "Competenze Professionali",
+                s1_title: "Rappresentanza Legale",
+                s1_desc: "Autorizzato a patrocinare dinanzi alle Corti d'Appello e al Consiglio di Stato, con esperienza in casi complessi.",
+                s2_title: "Gestione delle Controversie",
+                s2_desc: "Gestione completa dei fascicoli e follow-up efficiente di tutte le procedure di contenzioso.",
+                s3_title: "Stesura di Contratti",
+                s3_desc: "Redazione e revisione di contratti con elevata professionalità per garantire la massima protezione.",
+                s4_title: "Consulenza Strategica",
+                s4_desc: "Fornitura di soluzioni precise focalizzate sulla prevenzione dei rischi e risoluzione delle controversie.",
+                s5_title: "Pratica Completa",
+                s5_desc: "Esperienza pratica diretta nella gestione di un'ampia gamma di casi in diversi rami del diritto.",
+                values_title: "Valori Professionali",
+                values_subtitle: "Principi solidi che guidano la mia carriera per tutelare i diritti dei clienti.",
+                v1: "Rigoroso impegno per l'etica legale e costruzione di relazioni basate sulla fiducia assoluta.",
+                v2: "Costante impegno nell'aggiornamento delle conoscenze legali e delle ultime normative.",
+                v3: "Dedizione totale alla difesa degli interessi dei clienti e al ripristino dei diritti.",
+                v4: "Eccellenza nella comunicazione con la capacità di innovare strategie legali pratiche.",
+                achievements_title: "Risultati Specializzati",
+                a1: "Fornitura di consulenze strategiche che hanno protetto individui e aziende da potenziali rischi.",
+                a2: "Supporto legale specializzato ad aziende di Turismo e Diving, gestendo controversie e conformità.",
+                a3: "Raggiungimento di successi giudiziari costruendo solide strategie di difesa.",
+                a4: "Costruzione di una solida base di fiducia dei clienti fondata su trasparenza e competenza.",
+                a5: "Utilizzo dell'analisi delle modifiche legislative per elaborare difese solide e soluzioni innovative.",
+                contact_title: "Hai bisogno di una consulenza?",
+                contact_desc: "Siamo qui per proteggere i tuoi diritti. Contattaci ora.",
+                contact_phone: "Chiama Ora",
+                contact_wa: "WhatsApp",
+                contact_email: "Email",
+                contact_btn: "Contattami",
+                footer_copy: "Ahmed Al-Alfy. Tutti i diritti riservati."
+            }
+        };
+
+        // Theme Toggle Logic
+        function toggleTheme() {
+            const htmlTag = document.documentElement;
+            const themeIcon = document.getElementById('theme-icon');
+            
+            if (htmlTag.classList.contains('dark')) {
+                htmlTag.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+            } else {
+                htmlTag.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+            }
+        }
+
+        // Initialize Theme
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            document.getElementById('theme-icon').classList.replace('fa-moon', 'fa-sun');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+
+        // Language Switching Logic
+        function changeLanguage(lang) {
+            const data = translations[lang];
+            const body = document.getElementById('body-tag');
+            const html = document.documentElement;
+            
+            // Update Direction and Font
+            html.setAttribute('dir', data.dir);
+            html.setAttribute('lang', lang);
+            body.className = body.className.replace(/font-(arabic|latin)/, data.fontClass);
+            
+            // Update Text UI
+            document.getElementById('current-lang').textContent = lang.toUpperCase();
+
+            // Update Translations Elements
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if(data[key]) {
+                    el.textContent = data[key];
+                }
+            });
+        }
+
+        // Scroll Animation Logic (Intersection Observer)
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // Animate only once
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-up').forEach(element => {
+            observer.observe(element);
+        });
+
+    </script>
+</body>
+</html>
